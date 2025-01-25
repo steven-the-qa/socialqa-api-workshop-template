@@ -30,6 +30,8 @@ Before you begin, ensure you have the following installed:
     npm i
     ```
 
+## Project Structure
+
 ## Running Tests
 
 ## Writing Tests
