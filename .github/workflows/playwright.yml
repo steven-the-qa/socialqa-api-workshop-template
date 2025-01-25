@@ -16,6 +16,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Run Playwright API tests
+      env:
+        RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_API_KEY }} # Pass the secret as an environment variable
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
