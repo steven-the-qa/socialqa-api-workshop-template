@@ -4,7 +4,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 // Now you can access your API key
 const apiKey = process.env.RAPIDAPI_API_KEY;
-const baseUrl = 'active-jobs-db.p.rapidapi.com';
+export const host = 'movie-database-alternative.p.rapidapi.com';
+export const baseUrl = `https://${host}`;
 
 export default defineConfig({
   testDir: './tests', // Directory where your tests are located
@@ -15,9 +16,9 @@ export default defineConfig({
   reporter: 'list', // Reporter format
   use: {
     // Configure the context for API tests
-    baseURL: 'https://active-jobs-db.p.rapidapi.com', // Base URL for the Active Jobs API
+    baseURL: baseUrl, // Base URL for the Movies API
     extraHTTPHeaders: {
-      'x-rapidapi-host': `${baseUrl}`, // Replace with the actual host
+      'x-rapidapi-host': host, // Replace with the actual host
       'x-rapidapi-key': `${apiKey}`, // Replace with your actual RapidAPI key
       'Content-Type': 'application/json', // Set content type if needed
     },

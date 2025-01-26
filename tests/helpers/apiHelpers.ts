@@ -1,12 +1,12 @@
 import { request } from '@playwright/test';
+import { baseUrl } from '../../playwright.config';
 
-export const fetchActiveATS = async (title: string, location: string) => {
+export const getMovies = async (title: string) => {
   const context = await request.newContext();
 
-  const response = await context.get('https://active-jobs-db.p.rapidapi.com/active-ats-7d', {
+  const response = await context.get(baseUrl, {
     params: {
-      title_filter: `"${title}"`,
-      location_filter: `"${location}"`,
+      s: `${title}`,
     },
   });
 

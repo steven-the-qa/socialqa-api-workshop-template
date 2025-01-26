@@ -1,20 +1,20 @@
 import { test, expect } from '@playwright/test';
-import { fetchActiveATS } from './helpers/apiHelpers';
-import type { Job } from './helpers/apiTypes';
+import { getMovies } from './helpers/apiHelpers';
+import type { Movie } from './helpers/apiTypes';
 
 test('Get active ATS for Data Engineer in the United States', async () => {
-  const response = await fetchActiveATS('Data Engineer', 'United States');
+  const response = await getMovies('Avengers');
   expect(response.status()).toBe(200);
   
   const responseBody = await response.json();
-  expect(Array.isArray(responseBody)).toBe(true);
+  const searchResults = responseBody["Search"];
+  expect(Array.isArray(searchResults)).toBe(true);
   
-  responseBody.forEach((job: Job) => {
-    expect(job).toHaveProperty('id');
-    expect(job).toHaveProperty('date_posted');
-    expect(job.title).toContain('Data Engineer');
-    expect(job).toHaveProperty('organization');
-    expect(job).toHaveProperty('url');
-    expect(job).toHaveProperty('employment_type');
+  searchResults.forEach((movie: Movie) => {
+    expect(movie).toHaveProperty('Title');
+    expect(movie).toHaveProperty('Year');
+    expect(movie).toHaveProperty('imdbID');
+    expect(movie).toHaveProperty('Type');
+    expect(movie).toHaveProperty('Poster');
   });
 });
