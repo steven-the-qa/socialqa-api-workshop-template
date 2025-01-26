@@ -1,13 +1,11 @@
-// apiHelper.ts
 import { request } from '@playwright/test';
-// Import the dotenv library
 import dotenv from 'dotenv';
 
 // Load environment variables from .env file
 dotenv.config();
 
 // Now you can access your API key
-const apiKey = process.env.RAPIDAPI_KEY;
+const apiKey = process.env.RAPIDAPI_API_KEY;
 
 
 export const fetchActiveATS = async (title: string, location: string) => {

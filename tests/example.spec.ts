@@ -1,18 +1,20 @@
-// Import the helper function
 import { test, expect } from '@playwright/test';
-import { fetchActiveATS } from './helpers/apiHelpers'
+import { fetchActiveATS } from './helpers/apiHelpers';
+import type { Job } from './helpers/apiTypes';
 
-test('Get active ATS for Data Engineer in the United States', async ({ request }) => {
-  // Call the helper function
+test('Get active ATS for Data Engineer in the United States', async () => {
   const response = await fetchActiveATS('Data Engineer', 'United States');
-
-  // Check if the response status is 200 (OK)
   expect(response.status()).toBe(200);
-
-  // Optionally, you can check the response body
+  
   const responseBody = await response.json();
-  console.log(responseBody); // Log the response body for debugging
-
-  // Add additional assertions based on the expected structure of the response
-  expect(responseBody).toHaveProperty('data'); // Example assertion
+  expect(Array.isArray(responseBody)).toBe(true);
+  
+  responseBody.forEach((job: Job) => {
+    expect(job).toHaveProperty('id');
+    expect(job).toHaveProperty('date_posted');
+    expect(job.title).toContain('Data Engineer');
+    expect(job).toHaveProperty('organization');
+    expect(job).toHaveProperty('url');
+    expect(job).toHaveProperty('employment_type');
+  });
 });
