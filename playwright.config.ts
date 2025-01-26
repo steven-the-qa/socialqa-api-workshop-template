@@ -1,4 +1,9 @@
 import { defineConfig } from '@playwright/test';
+import dotenv from 'dotenv';
+// Load environment variables from .env file
+dotenv.config();
+// Now you can access your API key
+const apiKey = process.env.RAPIDAPI_API_KEY;
 
 export default defineConfig({
   testDir: './tests', // Directory where your tests are located
@@ -12,7 +17,7 @@ export default defineConfig({
     baseURL: 'https://active-jobs-db.p.rapidapi.com', // Base URL for the Active Jobs API
     extraHTTPHeaders: {
       'x-rapidapi-host': 'active-jobs-db.p.rapidapi.com', // Replace with the actual host
-      'x-rapidapi-key': 'YOUR_RAPIDAPI_KEY', // Replace with your actual RapidAPI key
+      'x-rapidapi-key': `${apiKey}`, // Replace with your actual RapidAPI key
       'Content-Type': 'application/json', // Set content type if needed
     },
   }
