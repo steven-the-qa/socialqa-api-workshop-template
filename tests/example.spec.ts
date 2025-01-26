@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { getMovies } from './helpers/apiHelpers';
 import type { Movie } from './helpers/apiTypes';
 
-test('Get active ATS for Data Engineer in the United States', async () => {
+test('Can search for movies', async () => {
   const response = await getMovies('Avengers');
   expect(response.status()).toBe(200);
   
