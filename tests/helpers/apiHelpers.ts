@@ -1,13 +1,19 @@
 import { request } from '@playwright/test';
 import { baseUrl } from '../../playwright.config';
 const { writeFile } = require('fs').promises;
+import dotenv from 'dotenv';
+// Load environment variables from .env file
+dotenv.config();
 
-export const searchForMovie = async (title: string) => {
+export const searchForMovie = async (s: string, r?: string, apiKey?: string) => {
   const context = await request.newContext();
   const response = await context.get(baseUrl, {
     params: {
-      s: `${title}`,
+      s: `${s}`,
     },
+    headers: {
+      'x-rapidapi-key': apiKey ?? `${process.env.RAPIDAPI_API_KEY}`
+    }
   });
 
     // Save results for easy debugging later
