@@ -45,3 +45,37 @@ tests/ (tests & test utilities)
 
 playwright.config.ts (API test configurations)
 ```
+
+## Workshop Exercises
+
+Add the following scenarios to this API test suite:
+
+1. **Valid Search Query**
+   - **Description**: Test the API with a valid movie title.
+
+2. **Invalid Search Query**
+   - **Description**: Test the API with an invalid movie title.
+
+3. **Empty Search Query**
+   - **Description**: Test the API with an empty search query.
+
+4. **Special Characters in Search Query**
+   - **Description**: Test the API with special characters in the movie title.
+
+5. **Pagination Test**
+   - **Description**: Test the API with pagination by requesting the second page of results.
+
+6. **Check Response Format**
+   - **Description**: Validate the structure of the response.
+
+7. **Rate Limiting Test**
+   - **Description**: Test the API's response to rapid successive requests.
+
+8. **Valid API Key**
+   - **Description**: Test the API with a valid API key.
+
+9. **Invalid API Key**
+   - **Description**: Test the API with an invalid API key.
+
+10. **Check for Non-Existent Movie**
+    - **Description**: Test the API with a movie title that does not exist.
