@@ -30,10 +30,19 @@ Before you begin, ensure you have the following installed:
     npm i
     ```
 
+3. Run tests
+    ```bash
+    npx playwright test
+    ```
+
 ## Project Structure
 
-## Running Tests
+tests/ (tests & test utilities)
+|
+|__helpers (request templates & type definitions)
+|
+|___spec files (API tests)
 
-## Writing Tests
+.env (API key)
 
-## Helper Functions
+playwright.config.ts (API test configurations)
