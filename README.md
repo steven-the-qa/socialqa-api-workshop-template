@@ -34,6 +34,7 @@ Before you begin, ensure you have the following installed:
 
 ## Project Structure
 
+```yaml
 tests/ (tests & test utilities)
 |
 |-- helpers/ (request templates & type definitions)
@@ -43,3 +44,4 @@ tests/ (tests & test utilities)
 .env (API key)
 
 playwright.config.ts (API test configurations)
+```
