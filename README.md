@@ -6,9 +6,6 @@ Welcome to the API Test Automation project using Playwright! This project is des
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Project Structure](#project-structure)
-- [Running Tests](#running-tests)
-- [Writing Tests](#writing-tests)
-- [Helper Functions](#helper-functions)
 
 ## Prerequisites
 Before you begin, ensure you have the following installed:
@@ -39,9 +36,9 @@ Before you begin, ensure you have the following installed:
 
 tests/ (tests & test utilities)
 |
-|__helpers (request templates & type definitions)
+|-- helpers/ (request templates & type definitions)
 |
-|___spec files (API tests)
+|-- spec files/ (API tests)
 
 .env (API key)
 
