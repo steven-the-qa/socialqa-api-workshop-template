@@ -13,7 +13,7 @@ export default defineConfig({
   expect: {
     timeout: 5000, // Timeout for expect assertions
   },
-  reporter: 'list', // Reporter format
+  reporter: [['list'], ['json', { outputFile: 'test-results/api-results.json'}]], // Reporter format
   use: {
     // Configure the context for API tests
     baseURL: baseUrl, // Base URL for the Movies API

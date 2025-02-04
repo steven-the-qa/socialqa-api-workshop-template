@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { getMovies } from './helpers/apiHelpers';
+import { searchForMovie } from './helpers/apiHelpers';
 import type { Movie } from './helpers/apiTypes';
 
 test('Can search for movies', async () => {
-  const response = await getMovies('Avengers');
+  const response = await searchForMovie('Knives Out');
   expect(response.status()).toBe(200);
   
   const responseBody = await response.json();
