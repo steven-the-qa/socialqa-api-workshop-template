@@ -5,7 +5,10 @@ import type { Movie } from './helpers/apiTypes';
 test('Can search for movies', async () => {
   const response = await searchForMovie('Knives Out');
   expect(response.status()).toBe(200);
-  
+  expect(response.ok()).toBeTruthy();
+  expect(response.ok()).toEqual(true);
+  expect(response.statusText()).toBe("OK");
+
   const responseBody = await response.json();
   const searchResults = responseBody["Search"];
   expect(Array.isArray(searchResults)).toBe(true);

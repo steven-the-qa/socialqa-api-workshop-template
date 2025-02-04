@@ -1,8 +1,7 @@
-
 # Playwright
 node_modules/
 /test-results/
 /blob-report/
 /playwright/.cache/
 .env
-.DS_Store
+.DS_Store/

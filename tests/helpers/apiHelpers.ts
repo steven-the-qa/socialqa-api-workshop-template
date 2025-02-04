@@ -4,14 +4,13 @@ const { writeFile } = require('fs').promises;
 
 export const searchForMovie = async (title: string) => {
   const context = await request.newContext();
-
   const response = await context.get(baseUrl, {
     params: {
       s: `${title}`,
     },
   });
 
-  // Save results for easy debugging later
+    // Save results for easy debugging later
   const responseBody = await response.json();
   saveResults('searchForMovieResponse.json', responseBody);
 
