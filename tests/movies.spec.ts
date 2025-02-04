@@ -12,7 +12,7 @@ test('Can search for movies', async () => {
   const responseBody = await response.json();
   const searchResults = responseBody["Search"];
   expect(Array.isArray(searchResults)).toBe(true);
-  
+
   searchResults.forEach((movie: Movie) => {
     expect(movie).toHaveProperty('Title');
     expect(movie).toHaveProperty('Year');
